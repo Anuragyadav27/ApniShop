@@ -2392,6 +2392,15 @@
           "city": "Hari Lok",
           "state": "Haryana",
           "pinCode": "851053"
+        },
+        {
+          "name": "Ram",
+          "email": "sasingh2277@gmail.com",
+          "phone": "8471202",
+          "street": "Ram Nagar",
+          "city": "Hari Lok",
+          "state": "Haryana",
+          "pinCode": "154023"
         }
       ],
       "id": 2
@@ -2404,50 +2413,7 @@
       "id": 3
     }
   ],
-  "cart": [
-    {
-      "title": "iPhone X",
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
-      "discountPercentage": 17.94,
-      "rating": 4.44,
-      "stock": 34,
-      "brand": "Apple",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/2/1.jpg",
-        "https://i.dummyjson.com/data/products/2/2.jpg",
-        "https://i.dummyjson.com/data/products/2/3.jpg",
-        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-      ],
-      "quantity": 1,
-      "user": 2,
-      "id": 8
-    },
-    {
-      "title": "NIGHT SUIT",
-      "description": "NIGHT SUIT RED MICKY MOUSE..  For Girls. Fantastic Suits.",
-      "price": 55,
-      "discountPercentage": 15.05,
-      "rating": 4.65,
-      "stock": 21,
-      "brand": "RED MICKY MOUSE..",
-      "category": "womens-dresses",
-      "thumbnail": "https://i.dummyjson.com/data/products/41/thumbnail.webp",
-      "images": [
-        "https://i.dummyjson.com/data/products/41/1.jpg",
-        "https://i.dummyjson.com/data/products/41/2.webp",
-        "https://i.dummyjson.com/data/products/41/3.jpg",
-        "https://i.dummyjson.com/data/products/41/4.jpg",
-        "https://i.dummyjson.com/data/products/41/thumbnail.webp"
-      ],
-      "productId": 41,
-      "quantity": 1,
-      "user": 1,
-      "id": 9
-    }
-  ],
+  "cart": [],
   "orders": [
     {
       "items": [
@@ -2701,6 +2667,159 @@
       },
       "status": "pending",
       "id": 4
+    },
+    {
+      "items": [
+        {
+          "title": "Fog Scent Xpressio Perfume",
+          "description": "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
+          "price": 13,
+          "discountPercentage": 8.14,
+          "rating": 4.59,
+          "stock": 61,
+          "brand": "Fog Scent Xpressio",
+          "category": "fragrances",
+          "thumbnail": "https://i.dummyjson.com/data/products/13/thumbnail.webp",
+          "images": [
+            "https://i.dummyjson.com/data/products/13/1.jpg",
+            "https://i.dummyjson.com/data/products/13/2.png",
+            "https://i.dummyjson.com/data/products/13/3.jpg",
+            "https://i.dummyjson.com/data/products/13/4.jpg",
+            "https://i.dummyjson.com/data/products/13/thumbnail.webp"
+          ],
+          "productId": 13,
+          "quantity": 1,
+          "user": 2,
+          "id": 11
+        },
+        {
+          "title": "Microsoft Surface Laptop 4",
+          "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+          "price": 1499,
+          "discountPercentage": 10.23,
+          "rating": 4.43,
+          "stock": 68,
+          "brand": "Microsoft Surface",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/8/1.jpg",
+            "https://i.dummyjson.com/data/products/8/2.jpg",
+            "https://i.dummyjson.com/data/products/8/3.jpg",
+            "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
+          ],
+          "productId": 8,
+          "quantity": 1,
+          "user": 2,
+          "id": 12
+        }
+      ],
+      "totalAmount": 1358,
+      "totalItems": 2,
+      "user": {
+        "email": "sasingh2277@gmail.com",
+        "password": "Ram818181",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Shadow GFG",
+            "email": "sasingh2277@gmail.com",
+            "phone": "5215854",
+            "street": "Hari chowk",
+            "city": "Hari Lok",
+            "state": "Haryana",
+            "pinCode": "851053"
+          },
+          {
+            "name": "Ram",
+            "email": "sasingh2277@gmail.com",
+            "phone": "8471202",
+            "street": "Ram Nagar",
+            "city": "Hari Lok",
+            "state": "Haryana",
+            "pinCode": "154023"
+          }
+        ],
+        "id": 2
+      },
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Ram",
+        "email": "sasingh2277@gmail.com",
+        "phone": "8471202",
+        "street": "Ram Nagar",
+        "city": "Hari Lok",
+        "state": "Haryana",
+        "pinCode": "154023"
+      },
+      "status": "pending",
+      "id": 5
+    },
+    {
+      "items": [
+        {
+          "title": "NIGHT SUIT",
+          "description": "NIGHT SUIT RED MICKY MOUSE..  For Girls. Fantastic Suits.",
+          "price": 55,
+          "discountPercentage": 15.05,
+          "rating": 4.65,
+          "stock": 21,
+          "brand": "RED MICKY MOUSE..",
+          "category": "womens-dresses",
+          "thumbnail": "https://i.dummyjson.com/data/products/41/thumbnail.webp",
+          "images": [
+            "https://i.dummyjson.com/data/products/41/1.jpg",
+            "https://i.dummyjson.com/data/products/41/2.webp",
+            "https://i.dummyjson.com/data/products/41/3.jpg",
+            "https://i.dummyjson.com/data/products/41/4.jpg",
+            "https://i.dummyjson.com/data/products/41/thumbnail.webp"
+          ],
+          "productId": 41,
+          "quantity": 1,
+          "user": 1,
+          "id": 9
+        }
+      ],
+      "totalAmount": 47,
+      "totalItems": 1,
+      "user": {
+        "email": "anurag@raj.com",
+        "password": "Ram818181",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Raj",
+            "email": "anurag@raj.com",
+            "phone": "542214215",
+            "street": "Adarsh Nagar",
+            "city": "Faridabad",
+            "state": "Haryana",
+            "pinCode": "121004"
+          },
+          {
+            "name": "Rohan",
+            "email": "anurag@raj.com",
+            "city": "New delhi",
+            "state": "New Delhi",
+            "pinCode": "521560",
+            "phone": "54238150",
+            "street": "Modi Street"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Raj",
+        "email": "anurag@raj.com",
+        "phone": "542214215",
+        "street": "Adarsh Nagar",
+        "city": "Faridabad",
+        "state": "Haryana",
+        "pinCode": "121004"
+      },
+      "status": "pending",
+      "id": 6
     }
   ]
 }

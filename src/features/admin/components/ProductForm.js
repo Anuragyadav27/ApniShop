@@ -11,6 +11,7 @@ import {
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useAlert } from "react-alert";
 
 function ProductForm() {
   const {
@@ -25,6 +26,7 @@ function ProductForm() {
   const dispatch = useDispatch();
   const params = useParams();
   const selectedProduct = useSelector(selectProductById);
+  const alert = useAlert();
 
   useEffect(() => {
     if (params.id) {
@@ -55,6 +57,7 @@ function ProductForm() {
     const product = {...selectedProduct};
     product.deleted = true;
     dispatch(updateProductAsync(product));
+    alert.show("Item Deleted successfully");
   }
 
   return (

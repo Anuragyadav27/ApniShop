@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import { selectLoggedInUser } from "../../auth/authSlice";
 import { addToCartAsync, selectItems } from "../../cart/cartSlice";
 import { discountedPrice } from "../../../app/constants";
-
+import { useAlert } from "react-alert";
 
 const colors = [
   { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
@@ -46,7 +46,7 @@ export default function ProductDetail() {
   const product = useSelector(selectProductById);
   const dispatch = useDispatch();
   const params = useParams();
-
+  const alert = useAlert();
 
   const handleCart = (e)=>{
     e.preventDefault();
@@ -55,7 +55,7 @@ export default function ProductDetail() {
     delete newItem['id']
     dispatch(addToCartAsync(newItem)) }
     else{
-      console.log('already added')
+      alert.show("Item already Added");
     }
   }
 

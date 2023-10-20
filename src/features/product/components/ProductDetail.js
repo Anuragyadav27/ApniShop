@@ -4,7 +4,6 @@ import { RadioGroup } from "@headlessui/react";
 import { fetchProductByIdAsync, selectProductById } from "../productSlice";
 import { useDispatch ,useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { selectLoggedInUser } from "../../auth/authSlice";
 import { addToCartAsync, selectItems } from "../../cart/cartSlice";
 import { discountedPrice } from "../../../app/constants";
 import { useAlert } from "react-alert";
@@ -41,7 +40,6 @@ function classNames(...classes) {
 export default function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
-  const user = useSelector(selectLoggedInUser);
   const items = useSelector(selectItems)
   const product = useSelector(selectProductById);
   const dispatch = useDispatch();
@@ -51,9 +49,9 @@ export default function ProductDetail() {
   const handleCart = (e)=>{
     e.preventDefault();
     if(items.findIndex((item)=> item.product.id ===product.id)<0){
-    const newItem = { product:product.id, quantity:1 , user:user.id }
+    const newItem = { product:product.id, quantity:1 }
     dispatch(addToCartAsync(newItem)) 
-    alert.error("Item added successfully")
+    alert.success("Item added successfully")
   }else{
       alert.show("Item already Added");
     }

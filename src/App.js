@@ -2,7 +2,7 @@ import {createBrowserRouter,RouterProvider} from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchItemsByUserIdAsync } from "./features/cart/cartSlice";
-import { selectLoggedInUser } from "./features/auth/authSlice";
+import { checkAuthAsync, selectLoggedInUser, selectUserChecked } from "./features/auth/authSlice";
 
 import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
@@ -169,6 +169,11 @@ function App() {
   
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser)
+  const userChecked = useSelector(selectUserChecked)
+
+  useEffect(()=>{
+    dispatch(checkAuthAsync())
+  },[dispatch]);
 
   useEffect(()=>{
     if(user){
@@ -179,9 +184,9 @@ function App() {
 
   return (
     <div className="App">
-      <Provider template={AlertTemplate} {...options}>
+      { userChecked &&<Provider template={AlertTemplate} {...options}>
       <RouterProvider router={router} />
-      </Provider>
+      </Provider>}
     </div>
   );
 }

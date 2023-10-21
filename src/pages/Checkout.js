@@ -1,10 +1,17 @@
 import { Link, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {deleteItemFromCartAsync,selectItems,updateCartAsync,} from "../features/cart/cartSlice";
+import {
+  deleteItemFromCartAsync,
+  selectItems,
+  updateCartAsync,
+} from "../features/cart/cartSlice";
 import { useForm } from "react-hook-form";
-import { updateUserAsync} from "../features/user/userSlice";
+import { updateUserAsync } from "../features/user/userSlice";
 import { useState } from "react";
-import { createOrderAsync, selectCurrentOrder } from "../features/order/orderSlice";
+import {
+  createOrderAsync,
+  selectCurrentOrder,
+} from "../features/order/orderSlice";
 import { selectUserInfo } from "../features/user/userSlice";
 import { discountedPrice } from "../app/constants";
 
@@ -21,39 +28,61 @@ function Checkout() {
   const items = useSelector(selectItems);
   const currentOrder = useSelector(selectCurrentOrder);
 
-  const totalAmount = items.reduce( (amount, item) => discountedPrice(item.product)* item.quantity + amount,0);
+  const totalAmount = items.reduce(
+    (amount, item) => discountedPrice(item.product) * item.quantity + amount,
+    0
+  );
   const totalItems = items.reduce((total, item) => item.quantity + total, 0);
 
   const [selectedAddress, setSelectedAddress] = useState(null);
-  const [paymentMethod ,setPaymentMethod] = useState('cash');
+  const [paymentMethod, setPaymentMethod] = useState("cash");
 
   const handleQuantity = (e, item) => {
-    dispatch(updateCartAsync({ id:item.id, quantity: +e.target.value }));
+    dispatch(updateCartAsync({ id: item.id, quantity: +e.target.value }));
   };
 
   const handleRemove = (e, id) => {
     dispatch(deleteItemFromCartAsync(id));
   };
 
-  const handleAddress = (e)=>{
+  const handleAddress = (e) => {
     console.log(e.target.value);
     setSelectedAddress(user.addresses[e.target.value]);
-  }
+  };
 
-  const handlePayment = (e)=>{
+  const handlePayment = (e) => {
     console.log(e.target.value);
     setPaymentMethod(e.target.value);
-  }
+  };
 
-  const handleOrder = (e)=>{
-    const order = {items , totalAmount ,totalItems ,user:user.id ,paymentMethod , selectedAddress , status:'pending'}
-    dispatch(createOrderAsync(order))
-  }
+  const handleOrder = (e) => {
+    const order = {
+      items,
+      totalAmount,
+      totalItems,
+      user: user.id,
+      paymentMethod,
+      selectedAddress,
+      status: "pending",
+    };
+    dispatch(createOrderAsync(order));
+  };
 
   return (
     <>
       {!items.length && <Navigate to="/" replace={true}></Navigate>}
-      {currentOrder && <Navigate to={`/order-success/${currentOrder.id}`} replace={true}></Navigate>}
+      {currentOrder && currentOrder.paymentMethod==='cash' && (
+        <Navigate
+          to={`/order-success/${currentOrder.id}`}
+          replace={true}
+        ></Navigate>
+      )}
+      {currentOrder &&  currentOrder.paymentMethod==='card' && (
+        <Navigate
+          to={`/stripe-checkout/`}
+          replace={true}
+        ></Navigate>
+      )}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
           <div className="lg:col-span-3">
@@ -63,7 +92,10 @@ function Checkout() {
               onSubmit={handleSubmit((data) => {
                 console.log(data);
                 dispatch(
-                  updateUserAsync({...user,addresses: [...user.addresses, data],})
+                  updateUserAsync({
+                    ...user,
+                    addresses: [...user.addresses, data],
+                  })
                 );
                 reset();
               })}
@@ -236,14 +268,14 @@ function Checkout() {
                     Choose from Existing addresses
                   </p>
                   <ul role="list">
-                    {user.addresses.map((address,index) => (
+                    {user.addresses.map((address, index) => (
                       <li
                         key={index}
                         className="flex justify-between gap-x-6 px-5 py-5 border-solid border-2 border-gray-200"
                       >
                         <div className="flex gap-x-4">
                           <input
-                          onChange={handleAddress}
+                            onChange={handleAddress}
                             name="address"
                             type="radio"
                             value={index}
@@ -289,7 +321,7 @@ function Checkout() {
                             onChange={handlePayment}
                             value="cash"
                             type="radio"
-                            checked = {paymentMethod === "cash"}
+                            checked={paymentMethod === "cash"}
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                           />
                           <label
@@ -306,7 +338,7 @@ function Checkout() {
                             onChange={handlePayment}
                             value="card"
                             type="radio"
-                            checked = {paymentMethod === "card"}
+                            checked={paymentMethod === "card"}
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                           />
                           <label
@@ -344,9 +376,13 @@ function Checkout() {
                           <div>
                             <div className="flex justify-between text-base font-medium text-gray-900">
                               <h3>
-                                <a href={item.product.id}>{item.product.title}</a>
+                                <a href={item.product.id}>
+                                  {item.product.title}
+                                </a>
                               </h3>
-                              <p className="ml-4">${discountedPrice(item.product)}</p>
+                              <p className="ml-4">
+                                ${discountedPrice(item.product)}
+                              </p>
                             </div>
                             <p className="mt-1 text-sm text-gray-500">
                               {item.product.brand}

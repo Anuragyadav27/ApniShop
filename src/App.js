@@ -133,12 +133,6 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/orders",
-    element: (
-        <UserOrders></UserOrders>
-    ),
-  },
-  {
     path: "/profile",
     element: (
       <Protected>

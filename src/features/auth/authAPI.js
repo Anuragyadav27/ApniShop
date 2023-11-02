@@ -10,7 +10,6 @@ export function createUser(userData) {
     resolve({ data });
   });
 }
-
 export function loginUser(loginInfo) {
   return new Promise(async (resolve, reject) => {
     try {
@@ -29,11 +28,9 @@ export function loginUser(loginInfo) {
     } catch (error) {
       reject( error );
     }
-
     // TODO: on server it will only return some info of user (not password)
   });
 }
-
 export function checkAuth() {
   return new Promise(async (resolve, reject) => {
     try {
@@ -48,9 +45,9 @@ export function checkAuth() {
     } catch (error) {
       reject( error );
     }
+    // TODO: on server it will only return some info of user (not password)
   });
 }
-
 export function signOut(userId) {
   return new Promise(async (resolve) => {
     // TODO: on server we will remove user session info
